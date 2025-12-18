@@ -1,19 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
 
 def index_page(request):
-    return render(request, 'blog/index.html', {})
+    context = {'name': 'ali akbari'}
+    return render(request, 'blog/index.html', context)
 
 def store_page(request):
-    return render(request, 'blog/index.html', {})
+    return render(request, 'blog/store.html', {})
 
 def card_page(request):
-    return render(request, 'blog/index.html', {})
+    return render(request, 'blog/card.html', {})
 
 def about_us_page(request):
-    return HttpResponse('this is a about us')
+    return render(request, 'blog/about-us.html', {})
 
 def contact_us_page(request):
-    return HttpResponse('this is contact us')
-
+    return render(request, 'blog/contact-us.html', {})
