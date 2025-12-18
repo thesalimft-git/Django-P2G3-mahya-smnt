@@ -113,6 +113,32 @@ from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['id', "name", "price", "stock"]
+    list_editable = ['price', 'name']
+    ordering = ['id']
     
 admin.site.register(Product, ProductAdmin)
+```
+
+8- show data in template
+to show data we need first get data from models in views, then render it in view
+
+```python
+def store_page(request):
+    products = Product.objects.all()
+    if products:
+        context = {
+            'products': products
+        }
+    else:
+        context = {}
+    return render(request, 'blog/store.html', context)
+```
+
+and show it in html file
+```python
+{% for product in products %}
+    <h1>
+        {{product.name}}
+    </h1>    
+{% endfor %}
 ```
