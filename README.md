@@ -186,5 +186,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 ```
+
+10-  add contact us form
+- first add html file code for contact us with three input fullname, email, msg
+
+- then send data through GET or POST

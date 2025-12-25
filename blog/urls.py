@@ -7,6 +7,10 @@ urlpatterns = [
     path('card/', views.card_page),
     path('about-us/', views.about_us_page),
     path('contact-us/', views.contact_us_page),
+    
+    
+    path('form-submitted/', views.form_submitted_page),
+    
 ]
 
 from django.conf import settings
