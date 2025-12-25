@@ -142,3 +142,49 @@ and show it in html file
     </h1>    
 {% endfor %}
 ```
+
+9- add other field to data base
+- add picture and description to product model
+
+```python
+class Product(models.Model):
+    # ........
+    description = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='product', null=True, blank=True)
+```
+
+- install Pillow
+
+```bash
+pip install Pillow
+pip freeze > requirements.txt
+```
+
+- Change media root in setting
+
+```pyhton
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+```
+
+- add image in model from admin panel and add them to template
+
+```html
+{% load static %}
+
+{% if product.image %}
+    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+{% else %}
+    <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="No image">
+{% endif %}
+```
+
+- add media and static root to url patterns
+
+```python
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+```

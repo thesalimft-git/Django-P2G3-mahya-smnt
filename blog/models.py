@@ -8,7 +8,3 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product', null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-# pip install Pillow
-# $ python manage.py makemigrations
-# $ python manage.py migrate
